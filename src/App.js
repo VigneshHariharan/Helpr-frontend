@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import './styles/global.scss';
+import { getTags } from './shared/utils/utils';
+import { Router } from '@reach/router';
+
+import WelcomeScreen from './pages/WelcomeScreen/WelcomeScreen';
+require('dotenv').config();
+
+const Home = () => <h1>Home</h1>;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Router>{getTags !== undefined ? <WelcomeScreen path="/" /> : <Home path="/" />}</Router>
+		</div>
+	);
 }
 
 export default App;

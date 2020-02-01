@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+HK&display=swap');
+
+$background-color: #f0e3ff;
+$background-color-variant: whitesmoke;
+$primary-color: #3e206d;
+$secondary-color: #916dd5;
+$ternary-color: #d89cf6;
+
+$primary-font: 'Noto Sans HK', 'Lato', sans-serif;
+
+$root-font-size: 18px;
+
+h1,
+h2,
+h3,
+p {
+	margin: 0;
+}
+body {
+	font-size: $root-font-size;
+}
+button {
+	height: 38px;
+}
+@mixin primary-buttons {
+	height: 38px;
+	background-color: $ternary-color;
+	border: 1px solid $primary-color;
+	border-radius: .2rem;
+}

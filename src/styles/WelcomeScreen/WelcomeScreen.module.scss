@@ -1,0 +1,81 @@
+@import '../global.scss';
+
+.welcomeLogo {
+	width: 200px;
+	height: 200px;
+}
+
+.welcomeScreen {
+	margin: auto;
+	width: 100%;
+	height: 100vh;
+	background-color: $background-color;
+	color: $primary-color;
+	text-align: center;
+	p {
+		margin: 10px 0;
+	}
+}
+.tags {
+	margin: 20px auto;
+	width: 50%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+}
+
+.list {
+	list-style: none;
+}
+
+.tag {
+	display: block;
+	font-family: $primary-font;
+	padding: 0 1.5rem;
+	background-color: $background-color-variant;
+	border: 1px solid $ternary-color;
+	margin: 0.2rem;
+	border-radius: 1rem;
+	z-index: 1;
+	transition: box-shadow 0.2s ease-in-out;
+	&:hover {
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	}
+}
+
+.pressed {
+	background-color: $ternary-color;
+}
+
+.cta {
+	border: none;
+	font-size: 1.1rem;
+	background-color: $primary-color;
+	color: $background-color;
+	outline: none;
+	border-radius: .3rem;
+	width: 170px;
+	height: 50px;
+	cursor: pointer;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	transition: all 0.2s ease-in-out;
+	&:hover {
+		background-color: $background-color;
+		color: $primary-color;
+		border: 1px solid $primary-color;
+	}
+}
+
+@media (max-width: 700px) {
+	.cta {
+		width: 140px;
+		font-size: 1rem;
+		height: 40px;
+	}
+	h2 {
+		font-size: 1rem;
+	}
+	p {
+		font-size: 0.8rem;
+	}
+}
