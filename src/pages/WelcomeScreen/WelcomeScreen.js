@@ -26,12 +26,26 @@ const Popup = (props) => {
 		getTags();
 	}, []);
 
+	const addAnotherTag = () => {
+		async function addTag() {
+			const newTags = [ ...tags, { tag: newTag } ];
+			setTags(newTags);
+			const url = `${process.env.REACT_APP_API}/createtag`;
+			await axios.post(url, { data: newTag });
+			switchDown();
+		}
+		addTag();
+	};
+
 	const createTag = (e) => {
-		console.log(e);
+		e.persist();
+		if (e.key === 'Enter') {
+			addAnotherTag();
+		}
 	};
 
 	const handleRouter = () => {
-		// storeValues('tags', selectedTags);
+		storeValues('tags', selectedTags);
 	};
 
 	const handleTag = (e) => {
@@ -70,13 +84,19 @@ const Popup = (props) => {
 					</button>
 				))}
 				{toggle ? (
+					<React.Fragment>
+						<input type="text" onChange={handleTag} onKeyPress={createTag} />
+						<button onClick={addAnotherTag} className={styles.addTopic}>
+							+
+						</button>
+					</React.Fragment>
+				) : (
 					<button onClick={switchUp} tag="" className={styles.tag}>
 						Add topic +
 					</button>
-				) : (
-					<input type="text" onClick={handleTag} />
 				)}
 			</div>
+
 			<button className={styles.cta} onClick={handleRouter}>
 				Let's go
 			</button>

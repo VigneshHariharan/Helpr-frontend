@@ -66,11 +66,26 @@
 	}
 }
 
+.addTopic {
+	display: none;
+	font-family: $primary-font;
+	padding: 0 .5rem;
+	background-color: $background-color-variant;
+	border: 1px solid $ternary-color;
+	margin: 0.2rem;
+	border-radius: .1rem;
+	z-index: 1;
+	transition: box-shadow 0.2s ease-in-out;
+}
+
 @media (max-width: 700px) {
 	.cta {
 		width: 140px;
 		font-size: 1rem;
 		height: 40px;
+	}
+	.addTopic {
+		display: block;
 	}
 	h2 {
 		font-size: 1rem;
